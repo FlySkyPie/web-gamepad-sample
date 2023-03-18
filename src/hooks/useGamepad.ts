@@ -1,17 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 import equal from 'fast-deep-equal';
+// import { getDiff } from 'json-difference'
 
-const cloneGamepadButton = (button: GamepadButton): GamepadButton => ({
+import { GamepadButtonData, GamepadData } from "./type";
+
+const cloneGamepadButton = (button: GamepadButton): GamepadButtonData => ({
     pressed: button.pressed,
     touched: button.touched,
     value: button.value,
 })
 
-const cloneGamepad = (gamepad: Gamepad): Gamepad => ({
-    axes: gamepad.axes,
+const cloneGamepad = (gamepad: Gamepad): GamepadData => ({
+    axes: Array.from(gamepad.axes),
     buttons: gamepad.buttons.map(item => cloneGamepadButton(item)),
     connected: gamepad.connected,
-    hapticActuators: gamepad.hapticActuators,
     id: gamepad.id,
     index: gamepad.index,
     mapping: gamepad.mapping,
@@ -19,7 +21,7 @@ const cloneGamepad = (gamepad: Gamepad): Gamepad => ({
 })
 
 export const useGamepad = (index = 0) => {
-    const [gamepad, setGamepad] = useState<Gamepad>();
+    const [gamepad, setGamepad] = useState<GamepadData>();
 
     const gamepadRef = useRef(gamepad);
     gamepadRef.current = gamepad;
@@ -50,21 +52,67 @@ export const useGamepad = (index = 0) => {
                 if (!prev) {
                     return cloneGamepad(_gamepad);
                 }
+                return prev;
+            })
 
-                if (!equal(prev.axes, _gamepad.axes)) {
-                    console.log("update axes")
-                    return cloneGamepad(_gamepad);
+            setGamepad(prev => {
+                if (prev && !equal(prev.axes, _gamepad.axes)) {
+                    return { ...prev, axes: Array.from(_gamepad.axes) };
                 }
+                return prev;
+            });
 
+            setGamepad(prev => {
                 const buttons = _gamepad.buttons.map(b => cloneGamepadButton(b));
-                for (let i = 0; i < prev.buttons.length; i++) {
-                    if (!equal(prev.buttons[i], buttons[i])) {
-                        return cloneGamepad(_gamepad);
-                    }
+                if (prev && !equal(prev.buttons,buttons)) {
+                    return {
+                        ...prev, buttons: prev.buttons.map((v, index) => {
+                            if (equal(v, buttons[index])) {
+                                return v;
+                            }
+                            return buttons[index];
+                        })
+                    };
+                }
+                return prev;
+            })
+
+            setGamepad(prev => {
+                if (prev && prev.connected !== _gamepad.connected) {
+                    return { ...prev, connected: _gamepad.connected }
                 }
 
                 return prev;
-            })
+            });
+
+            setGamepad(prev => {
+                if (prev && prev.id !== _gamepad.id) {
+                    return { ...prev, id: _gamepad.id }
+                }
+
+                return prev;
+            });
+            setGamepad(prev => {
+                if (prev && prev.index !== _gamepad.index) {
+                    return { ...prev, index: _gamepad.index }
+                }
+
+                return prev;
+            });
+            setGamepad(prev => {
+                if (prev && prev.mapping !== _gamepad.mapping) {
+                    return { ...prev, mapping: _gamepad.mapping }
+                }
+
+                return prev;
+            });
+            setGamepad(prev => {
+                if (prev && prev.timestamp !== _gamepad.timestamp) {
+                    return { ...prev, timestamp: _gamepad.timestamp }
+                }
+
+                return prev;
+            });
         };
 
         animate();

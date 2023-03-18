@@ -7,9 +7,13 @@ import './App.css'
 function App() {
   const { gamepad } = useGamepad();
 
+  // useEffect(()=>{
+  //   console.log(gamepad?.buttons[10])
+  // },[gamepad?.buttons])
+
   return (
     <div className="App">
-      <GamepadSvg axes={gamepad?.axes} />
+      <GamepadSvg gamepad={gamepad} />
       <p>
         {gamepad ?
           gamepad.id :
