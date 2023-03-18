@@ -1,8 +1,8 @@
-import { useEffect, useMemo, useState } from "react";
+import type { GamepadData } from "@/hooks/type";
 
-import { GamepadData } from "../../hooks/type";
 import { CenterButtons } from "./components/CenterButtons";
 import { L1 } from "./components/L1";
+import { L2 } from "./components/L2";
 import { LeftButtons } from "./components/LeftButtons";
 import { LeftStick } from "./components/LeftStick";
 import { R1 } from "./components/R1";
@@ -39,6 +39,14 @@ export const GamepadSvg: React.FC<IProps> = ({ gamepad }) => {
                         d="m558.28 0a24.213 10.545 0 0 0-24.213 10.545v38.671a24.213 10.545 0 0 0 24.213 10.545 24.213 10.545 0 0 0 24.213-10.545v-38.671a24.213 10.545 0 0 0-24.213-10.545z"
                     />
                 </clipPath>
+                <clipPath clipPathUnits="userSpaceOnUse" id="clipPathL2">
+                    <path
+                        style={{
+                            fill: "#00ff00",
+                        }}
+                        d="m142.46 0a24.213 10.545 0 0 0-24.213 10.545v38.671a24.213 10.545 0 0 0 24.213 10.545 24.213 10.545 0 0 0 24.213-10.545v-38.671a24.213 10.545 0 0 0-24.213-10.545z"
+                    />
+                </clipPath>
             </defs>
             <path
                 className="gamepad"
@@ -52,56 +60,7 @@ export const GamepadSvg: React.FC<IProps> = ({ gamepad }) => {
             <LeftButtons gamepad={gamepad} />
             <CenterButtons gamepad={gamepad} />
             <R2 gamepad={gamepad} />
-            {/* <g>
-                <g strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.545}>
-                    <path
-                        className="R2-bg"
-                        d="m558.28 0a24.213 10.545 0 0 0-24.213 10.545v38.671a24.213 10.545 0 0 0 24.213 10.545 24.213 10.545 0 0 0 24.213-10.545v-38.671a24.213 10.545 0 0 0-24.213-10.545z"
-                        stopColor="#000000"
-                        style={{
-                            paintOrder: "stroke markers fill"
-                        }}
-                    />
-                </g>
-            </g> */}
-            <g strokeLinecap="round" strokeLinejoin="round">
-                {/* <rect
-                    transform="scale(.54504)"
-                    x={979.87}
-                    width={88.849}
-                    height={113.03}
-                    clipPath="url(#clipPath30656)"
-                    fill="#fff"
-                    stopColor="#000000"
-                    strokeWidth={2.8346}
-                    style={{
-                        paintOrder: "stroke markers fill"
-                    }}
-                /> */}
-                {/* <path
-                    className="L2-bg"
-                    d="m142.46 0a24.213 10.545 0 0 0-24.213 10.545v38.671a24.213 10.545 0 0 0 24.213 10.545 24.213 10.545 0 0 0 24.213-10.545v-38.671a24.213 10.545 0 0 0-24.213-10.545z"
-                    stopColor="#000000"
-                    strokeWidth={1.545}
-                    style={{
-                        paintOrder: "stroke markers fill"
-                    }}
-                /> */}
-                {/* <rect
-                    transform="scale(.54504)"
-                    x={216.95}
-                    y={0.00000135}
-                    width={92.484}
-                    height={109.65}
-                    clipPath="url(#clipPath30662)"
-                    fill="#fff"
-                    stopColor="#000000"
-                    strokeWidth={2.8346}
-                    style={{
-                        paintOrder: "stroke markers fill"
-                    }}
-                /> */}
-            </g>
+            <L2 gamepad={gamepad} />
         </svg>
     )
 };
