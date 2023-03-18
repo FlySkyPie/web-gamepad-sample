@@ -6,6 +6,7 @@ import { L1 } from "./components/L1";
 import { LeftButtons } from "./components/LeftButtons";
 import { LeftStick } from "./components/LeftStick";
 import { R1 } from "./components/R1";
+import { R2 } from "./components/R2";
 import { RightButtons } from "./components/RightButtons";
 import { RightStick } from "./components/RightStick";
 
@@ -24,30 +25,18 @@ export const GamepadSvg: React.FC<IProps> = ({ gamepad }) => {
             xmlns="http://www.w3.org/2000/svg"
         >
             <defs>
-                <clipPath className="clipPath30656">
+                <clipPath clipPathUnits="userSpaceOnUse" id="clipPath429">
                     <path
-                        className="R2-clip"
-                        d="m1024.3-1.2e-6a44.425 19.347 0 0 0-44.424 19.348v70.951a44.425 19.347 0 0 0 44.424 19.348 44.425 19.347 0 0 0 44.424-19.348v-70.951a44.425 19.347 0 0 0-44.424-19.348z"
-                        stopColor="#000000"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2.8346}
+                        id="path431"
                         style={{
-                            paintOrder: "stroke markers fill"
+                            fill: "#00ff00",
+                            strokeWidth: 1.54499,
+                            strokeLinecap: "round",
+                            strokeLinejoin: "round",
+                            paintOrder: "stroke markers fill",
+                            stopColor: "#000000"
                         }}
-                    />
-                </clipPath>
-                <clipPath className="clipPath30662">
-                    <path
-                        className="R1-clip"
-                        d="m261.38 1.35e-6a44.425 19.347 0 0 0-44.424 19.348v70.951a44.425 19.347 0 0 0 44.424 19.348 44.425 19.347 0 0 0 44.424-19.348v-70.951a44.425 19.347 0 0 0-44.424-19.348z"
-                        stopColor="#000000"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2.8346}
-                        style={{
-                            paintOrder: "stroke markers fill"
-                        }}
+                        d="m558.28 0a24.213 10.545 0 0 0-24.213 10.545v38.671a24.213 10.545 0 0 0 24.213 10.545 24.213 10.545 0 0 0 24.213-10.545v-38.671a24.213 10.545 0 0 0-24.213-10.545z"
                     />
                 </clipPath>
             </defs>
@@ -62,7 +51,8 @@ export const GamepadSvg: React.FC<IProps> = ({ gamepad }) => {
             <RightButtons gamepad={gamepad} />
             <LeftButtons gamepad={gamepad} />
             <CenterButtons gamepad={gamepad} />
-            <g>
+            <R2 gamepad={gamepad} />
+            {/* <g>
                 <g strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.545}>
                     <path
                         className="R2-bg"
@@ -73,9 +63,9 @@ export const GamepadSvg: React.FC<IProps> = ({ gamepad }) => {
                         }}
                     />
                 </g>
-            </g>
+            </g> */}
             <g strokeLinecap="round" strokeLinejoin="round">
-                <rect
+                {/* <rect
                     transform="scale(.54504)"
                     x={979.87}
                     width={88.849}
@@ -87,8 +77,8 @@ export const GamepadSvg: React.FC<IProps> = ({ gamepad }) => {
                     style={{
                         paintOrder: "stroke markers fill"
                     }}
-                />
-                <path
+                /> */}
+                {/* <path
                     className="L2-bg"
                     d="m142.46 0a24.213 10.545 0 0 0-24.213 10.545v38.671a24.213 10.545 0 0 0 24.213 10.545 24.213 10.545 0 0 0 24.213-10.545v-38.671a24.213 10.545 0 0 0-24.213-10.545z"
                     stopColor="#000000"
@@ -96,8 +86,8 @@ export const GamepadSvg: React.FC<IProps> = ({ gamepad }) => {
                     style={{
                         paintOrder: "stroke markers fill"
                     }}
-                />
-                <rect
+                /> */}
+                {/* <rect
                     transform="scale(.54504)"
                     x={216.95}
                     y={0.00000135}
@@ -107,29 +97,6 @@ export const GamepadSvg: React.FC<IProps> = ({ gamepad }) => {
                     fill="#fff"
                     stopColor="#000000"
                     strokeWidth={2.8346}
-                    style={{
-                        paintOrder: "stroke markers fill"
-                    }}
-                />
-            </g>
-            <g
-                fill="#fff"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-            // strokeWidth={1.545}
-            >
-                {/* <path
-                    className="B08"
-                    d="m256.98 209.45v24.527h39.788v-24.527h-19.894z"
-                    stopColor="#000000"
-                    style={{
-                        paintOrder: "stroke markers fill"
-                    }}
-                />
-                <path
-                    className="B09"
-                    d="m397.39 208.91c-0.16351 0-0.32735 5.8867-0.32735 13.027v13.026l14.607-4.8502c8.012-2.6706 16.624-5.5052 19.185-6.2682 2.5617-0.81755 4.8508-1.635 5.1233-1.8531 0.21801-0.27252-8.2849-3.2702-18.913-6.7584-10.628-3.4883-19.512-6.3225-19.676-6.3225z"
-                    stopColor="#000000"
                     style={{
                         paintOrder: "stroke markers fill"
                     }}
