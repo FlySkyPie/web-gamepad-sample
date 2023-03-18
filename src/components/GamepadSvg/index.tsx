@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 
 import { GamepadData } from "../../hooks/type";
+import { CenterButtons } from "./components/CenterButtons";
 import { L1 } from "./components/L1";
 import { LeftButtons } from "./components/LeftButtons";
 import { LeftStick } from "./components/LeftStick";
@@ -60,6 +61,7 @@ export const GamepadSvg: React.FC<IProps> = ({ gamepad }) => {
             <R1 gamepad={gamepad} />
             <RightButtons gamepad={gamepad} />
             <LeftButtons gamepad={gamepad} />
+            <CenterButtons gamepad={gamepad} />
             <g>
                 <g strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.545}>
                     <path
@@ -116,7 +118,8 @@ export const GamepadSvg: React.FC<IProps> = ({ gamepad }) => {
                 strokeLinejoin="round"
             // strokeWidth={1.545}
             >
-                <path
+                {/* <path
+                    className="B08"
                     d="m256.98 209.45v24.527h39.788v-24.527h-19.894z"
                     stopColor="#000000"
                     style={{
@@ -124,12 +127,13 @@ export const GamepadSvg: React.FC<IProps> = ({ gamepad }) => {
                     }}
                 />
                 <path
+                    className="B09"
                     d="m397.39 208.91c-0.16351 0-0.32735 5.8867-0.32735 13.027v13.026l14.607-4.8502c8.012-2.6706 16.624-5.5052 19.185-6.2682 2.5617-0.81755 4.8508-1.635 5.1233-1.8531 0.21801-0.27252-8.2849-3.2702-18.913-6.7584-10.628-3.4883-19.512-6.3225-19.676-6.3225z"
                     stopColor="#000000"
                     style={{
                         paintOrder: "stroke markers fill"
                     }}
-                />
+                /> */}
             </g>
         </svg>
     )

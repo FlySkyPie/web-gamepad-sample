@@ -17,7 +17,12 @@ function App() {
       <p>
         {gamepad ?
           gamepad.id :
-          "No Gamepad Detect."}
+          <>
+            <p>
+              "No Gamepad Detect." <br />
+              (Plug-in gamepad and press any button to trigger connect.)
+            </p>
+          </>}
       </p>
     </div>
   )
